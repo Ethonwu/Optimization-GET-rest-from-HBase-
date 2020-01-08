@@ -4,6 +4,7 @@ from multiprocessing import Process, Pool
 import time
 import sys
 import urllib2
+import os
 
 def millis():
   return int(round(time.time() * 1000))
@@ -20,10 +21,12 @@ def http_get(url):
 #urls = ['http://www.google.com/', 'https://foursquare.com/', 'http://www.yahoo.com/', 'http://www.bing.com/', "https://www.yelp.com/"]
 query_num = 10000
 sample_mn01 = "http://mn01:20550/scanning_test100k/rk"
-sample_wh01 = "http://wh01:20550/scanning_test100k/rk"
+#sample_wh01 = "http://wh01:20550/scanning_test100k/rk"
 p_num = int(sys.argv[1])
+start_key = int(sys.argv[2])
+end_key = int(sys.argv[3])
 urls = []
-for i in range(1,query_num+1):
+for i in range(start_key,end_key):
    urls.append(sample_mn01+str(i))  
 #for i in range(query_num/2+1,query_num+1):
 #   urls.append(sample_wh01+str(i))
@@ -35,5 +38,6 @@ total_time = str(millis() - start_time)
 
 #for result in results:
 #  print result
-print "\nTotal took " + total_time + " ms\n"
-  
+#print "\nTotal took " + total_time + " ms\n"
+command = "echo -e '\nTotal took {} ms\n' > time.txt".format(total_time)
+os.system(command)

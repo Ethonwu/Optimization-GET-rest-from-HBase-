@@ -28,7 +28,7 @@ def http_get(url):
     #print r.text
 #    async.get(url, headers ={'Accept': 'text/xml'})
 def scrap():
-    with concurrent.futures.ProcessPoolExecutor(max_workers=20) as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=1) as executor:
     #with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
         #future_to_url = {executor.submit(http_request, url): url for url in urls}
 	results = executor.map(http_get, urls)
@@ -42,7 +42,7 @@ def scrap():
 		#print('%r page length is %d' % (url, len(data)))
 #query_num = 10000
 #query_num = 200
-sample_mn01 = "http://mn01:20550/scanning_test100k/rk"
+sample_mn01 = "http://mn01"
 #sample_wh01 = "http://wh01:20550/scanning_test100k/rk"
 #p_num = int(sys.argv[1])
 global urls
