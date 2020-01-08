@@ -19,7 +19,8 @@ def http_get(url):
   opener.addheaders = [('Accept',' text/xml')]
 
   #urllib2.addheaders = [('Accept',' text/xml')]
-  res = opener.open(url)
+  opener.open(url)
+  #res = opener.open(url)
   
   #print res.read()
   #return res
@@ -47,19 +48,22 @@ sample_mn01 = "http://mn01:20550/scanning_test100k/rk"
 #p_num = int(sys.argv[1])
 global urls
 start_key = int(sys.argv[1])
-end_key = int(sys.argv[2])
+#end_key = int(sys.argv[2])
 
 urls = []
-for i in range(start_key,end_key):
-   urls.append(sample_mn01+str(i))  
+for i in range(0,start_key):
+    urls.append(sample_mn01)
+#for i in range(start_key,end_key):
+#   urls.append(sample_mn01+str(i))  
 #for i in range(query_num/2+1,query_num+1):
 #   urls.append(sample_wh01+str(i))
 
 start_time = millis()
 scrap()
 total_time = str(millis() - start_time)
+print "Total took {} ms".format(total_time)
 
 #for result in results:
 #  print result
-command = "hostname > time.txt ;  echo -e '\nTotal took {} ms\n' >> time.txt".format(total_time)
-os.system(command)
+#command = "hostname > time.txt ;  echo -e '\nTotal took {} ms\n' >> time.txt".format(total_time)
+#os.system(command)

@@ -38,6 +38,6 @@ total_time = str(millis() - start_time)
 
 #for result in results:
 #  print result
-#print "\nTotal took " + total_time + " ms\n"
-command = "echo -e '\nTotal took {} ms\n' > time.txt".format(total_time)
-os.system(command)
+print "\nTotal took " + total_time + " ms\n"
+#command = "echo -e '\nTotal took {} ms\n' > time.txt".format(total_time)
+#os.system(command)
